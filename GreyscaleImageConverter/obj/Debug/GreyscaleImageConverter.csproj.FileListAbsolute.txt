@@ -1,0 +1,1 @@
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\bin\Debug\GreyscaleImageConverter.exe.config
