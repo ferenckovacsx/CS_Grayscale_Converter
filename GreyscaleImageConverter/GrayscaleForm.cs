@@ -13,8 +13,6 @@ namespace GreyscaleImageConverter
 {
     public partial class GrayscaleForm : Form
     {
-        //public string SelectedFile { get; set; }
-
         public string SelectedFile { get; set; }
 
         public GrayscaleForm()
@@ -26,15 +24,12 @@ namespace GreyscaleImageConverter
 
         private void InitializeOpenFileDialog()
         {
-            openFileDialog = new OpenFileDialog();
-
             // Set the file dialog to filter for graphics files.
             openFileDialog.Filter =
                 "Images (BMP, JPG, GIF, PNG, SVG)|*.BMP;*.JPG;*.GIF;*.SVG;*.PNG|" +
                 "All files (*.*)|*.*";
-            /*
-            // Allow the user to select multiple images.
-            this.openFileDialog.Multiselect = true;*/
+
+            // Set the title of the dialog window
             openFileDialog.Title = "Browse for an image";
 
         }
@@ -54,7 +49,6 @@ namespace GreyscaleImageConverter
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            Stream myStream = null;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 SelectedFile = openFileDialog.FileName;
@@ -67,6 +61,12 @@ namespace GreyscaleImageConverter
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = Path.GetFileName(SelectedFile);           
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image.Save(sfd.FileName);
+            }
 
         }
     }
