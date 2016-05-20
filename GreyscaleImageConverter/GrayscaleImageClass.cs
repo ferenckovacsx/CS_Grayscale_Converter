@@ -7,23 +7,32 @@ using System.Threading.Tasks;
 
 namespace GreyscaleImageConverter
 {
-    class ImageEditor
+    class GrayscaleImageClass
     {
-        
-        public static Bitmap ConvertToGreyscale(string sourceFile)
+        public string SelectedFile { get; set; }
+
+        public GrayscaleImageClass(string sourceFile)
         {
+            SelectedFile = sourceFile;
+        }
+
+        public Bitmap ConvertToGreyscale(string sourceFile)
+        {
+
             GrayscaleForm form = new GrayscaleForm();
-            sourceFile = form.SelectedFile;
+            sourceFile = SelectedFile;
             Bitmap originalImage = new Bitmap(sourceFile);
 
             Bitmap grayscaleImage;
-            int x, y;
 
             Color color;
+
+            int x;
+            int y;
             // Loop through the images pixels to reset color.
-            for (x = 0; x < originalImage.Width; x++)
+            for (y = 0; y < originalImage.Width; y++)
             {
-                for (y = 0; y < originalImage.Height; y++)
+                for (x = 0; x < originalImage.Height; x++)
                 {
                     color = originalImage.GetPixel(x, y);
 
@@ -46,8 +55,9 @@ namespace GreyscaleImageConverter
                     */
                 }
             }
-            grayscaleImage = originalImage;
-            return grayscaleImage;
+            originalImage.Save(@"C:\BFA\new.png");
+            return originalImage;
+            
         }
 
     }

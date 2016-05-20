@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace GreyscaleImageConverter
 {
     public partial class GrayscaleForm : Form
     {
+        //public string SelectedFile { get; set; }
+
         public string SelectedFile { get; set; }
 
         public GrayscaleForm()
@@ -43,18 +46,28 @@ namespace GreyscaleImageConverter
             pictureBox2.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_color.png";
-            //pictureBox2.Image = ImageEditor.ConvertToGreyscale(sourceImage);
+            //.ConvertToGreyscale(sourceImage);
 
-            //@"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
+            pictureBox2.ImageLocation = @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
 
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
-            SelectedFile = openFileDialog.FileName;
-            pictureBox1.ImageLocation = SelectedFile;
-            
+            Stream myStream = null;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                SelectedFile = openFileDialog.FileName;
+                GrayscaleImageClass editorClass = new GrayscaleImageClass(SelectedFile);
+                pictureBox1.ImageLocation = SelectedFile;
+                editorClass.ConvertToGreyscale(SelectedFile);
+                pictureBox2.Image = editorClass.ConvertToGreyscale(SelectedFile);
+            }            
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
