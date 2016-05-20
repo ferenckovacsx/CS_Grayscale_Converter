@@ -1,1 +1,9 @@
 C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\bin\Debug\GreyscaleImageConverter.exe.config
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\bin\Debug\GreyscaleImageConverter.exe
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\bin\Debug\GreyscaleImageConverter.pdb
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.csprojResolveAssemblyReference.cache
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.Properties.Resources.resources
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.csproj.GenerateResource.Cache
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.exe
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.pdb
+C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\obj\Debug\GreyscaleImageConverter.GreyscaleForm.resources
