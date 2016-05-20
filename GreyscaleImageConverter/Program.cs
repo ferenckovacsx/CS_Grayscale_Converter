@@ -16,7 +16,7 @@ namespace GreyscaleImageConverter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GreyscaleForm());
+            Application.Run(new GrayscaleForm());
         }
     }
 }

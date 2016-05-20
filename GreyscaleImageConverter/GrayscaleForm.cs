@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace GreyscaleImageConverter
 {
-    public partial class GreyscaleForm : Form
+    public partial class GrayscaleForm : Form
     {
         public string SelectedFile { get; set; }
 
-        public GreyscaleForm()
+        public GrayscaleForm()
         {
             InitializeComponent();
             InitializeOpenFileDialog();
@@ -38,12 +38,14 @@ namespace GreyscaleImageConverter
 
         private void InitializePicturebox()
         {
+            string sourceImage = pictureBox1.ImageLocation;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox2.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_color.png";
-            pictureBox2.ImageLocation =
-                @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
+            //pictureBox2.Image = ImageEditor.ConvertToGreyscale(sourceImage);
+
+            //@"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
 
         }
 
@@ -52,6 +54,7 @@ namespace GreyscaleImageConverter
             openFileDialog.ShowDialog();
             SelectedFile = openFileDialog.FileName;
             pictureBox1.ImageLocation = SelectedFile;
+            
         }
     }
 }

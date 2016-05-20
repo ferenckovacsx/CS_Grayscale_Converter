@@ -1,6 +1,6 @@
 ﻿namespace GreyscaleImageConverter
 {
-    partial class GreyscaleForm
+    partial class GrayscaleForm
     {
         /// <summary>
         /// Required designer variable.
