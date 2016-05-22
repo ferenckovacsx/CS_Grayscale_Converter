@@ -36,25 +36,24 @@ namespace GreyscaleImageConverter
 
         private void InitializePicturebox()
         {
-            string sourceImage = pictureBox1.ImageLocation;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox2.BorderStyle = BorderStyle.FixedSingle;
+
+            // set default picturebox values that will show on startup
             pictureBox1.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_color.png";
-            //.ConvertToGrayscale(sourceImage);
-
-            pictureBox2.ImageLocation = @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
-
+            pictureBox2.ImageLocation = 
+                @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                SelectedFile = openFileDialog.FileName;
-
-                GrayscaleImageClass editorClass = new GrayscaleImageClass(SelectedFile);
+                SelectedFile = openFileDialog.FileName;              
                 pictureBox1.ImageLocation = SelectedFile;
+                GrayscaleImageClass editorClass = new GrayscaleImageClass(SelectedFile);
 
                 //invoke 'ConvertToGrayscale' method with 'SelectedFile' as 
                 //paramether add the result to 'picturebox2'

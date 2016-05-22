@@ -18,23 +18,18 @@ namespace GreyscaleImageConverter
 
         public Bitmap ConvertToGrayscale(string sourceFile)
         {
-
-            GrayscaleForm form = new GrayscaleForm();
-            sourceFile = SelectedFile;
-            Bitmap originalImage = new Bitmap(sourceFile);
-
-            Bitmap grayscaleImage;
-
+            //sourceFile = SelectedFile;
+            Bitmap image = new Bitmap(sourceFile);
             Color color;
-
-            int x;
             int y;
+            int x;
+
             // Loop through the images pixels to reset color.
-            for (y = 0; y < originalImage.Width; y++)
+            for (x = 0; x < image.Width; x++)
             {
-                for (x = 0; x < originalImage.Height; x++)
+                for (y = 0; y < image.Height; y++)
                 {
-                    color = originalImage.GetPixel(x, y);
+                    color = image.GetPixel(x, y);
 
                     //extract pixel component ARGB
                     int a = color.A;
@@ -46,19 +41,10 @@ namespace GreyscaleImageConverter
                     int avg = (r + g + b) / 3;
 
                     //set new pixel value
-                    originalImage.SetPixel(x, y, Color.FromArgb(a, avg, avg, avg));
-
-                    /*
-                    Color pixelColor = originalImage.GetPixel(x, y);
-                    Color newColor = Color.FromArgb(pixelColor.R, 0, 0);
-                    originalImage.SetPixel(x, y, newColor); // Now greyscale
-                    */
+                    image.SetPixel(x, y, Color.FromArgb(a, avg, avg, avg));
                 }
             }
-            originalImage.Save(@"C:\BFA\new.png");
-            return originalImage;
-            
+            return image;     
         }
-
     }
 }
