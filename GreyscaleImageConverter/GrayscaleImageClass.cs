@@ -16,7 +16,7 @@ namespace GreyscaleImageConverter
             SelectedFile = sourceFile;
         }
 
-        public Bitmap ConvertToGreyscale(string sourceFile)
+        public Bitmap ConvertToGrayscale(string sourceFile)
         {
 
             GrayscaleForm form = new GrayscaleForm();

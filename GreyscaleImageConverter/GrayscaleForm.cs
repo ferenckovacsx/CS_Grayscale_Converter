@@ -24,12 +24,12 @@ namespace GreyscaleImageConverter
 
         private void InitializeOpenFileDialog()
         {
-            // Set the file dialog to filter for graphics files.
+            //set the file dialog to filter for graphics files.
             openFileDialog.Filter =
                 "Images (BMP, JPG, GIF, PNG, SVG)|*.BMP;*.JPG;*.GIF;*.SVG;*.PNG|" +
                 "All files (*.*)|*.*";
 
-            // Set the title of the dialog window
+            //set the title of the dialog window
             openFileDialog.Title = "Browse for an image";
 
         }
@@ -41,7 +41,7 @@ namespace GreyscaleImageConverter
             pictureBox2.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_color.png";
-            //.ConvertToGreyscale(sourceImage);
+            //.ConvertToGrayscale(sourceImage);
 
             pictureBox2.ImageLocation = @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
 
@@ -52,20 +52,28 @@ namespace GreyscaleImageConverter
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 SelectedFile = openFileDialog.FileName;
+
                 GrayscaleImageClass editorClass = new GrayscaleImageClass(SelectedFile);
                 pictureBox1.ImageLocation = SelectedFile;
-                editorClass.ConvertToGreyscale(SelectedFile);
-                pictureBox2.Image = editorClass.ConvertToGreyscale(SelectedFile);
+
+                //invoke 'ConvertToGrayscale' method with 'SelectedFile' as 
+                //paramether add the result to 'picturebox2'
+                pictureBox2.Image = editorClass.ConvertToGrayscale(SelectedFile);
             }            
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = Path.GetFileName(SelectedFile);           
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox2.Image.Save(sfd.FileName);
+            //set 'SelectedFile' as the default filename for 'saveFileDialog'
+            saveFileDialog.FileName = Path.GetFileName(SelectedFile);
+
+            //get extension of 'SelectedFile'
+            string extension = Path.GetExtension(SelectedFile); 
+                              
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) //when 'Save' button is pressed 
+            { 
+                //save the image in the 'pictureBox2' to a file
+                pictureBox2.Image.Save(saveFileDialog.FileName + extension);
             }
 
         }
