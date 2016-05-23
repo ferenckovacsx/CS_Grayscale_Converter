@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GreyscaleImageConverter
 {
-    class GrayscaleImageClass
+    class GrayscaleClass
     {
         public string SelectedFile { get; set; }
 
-        public GrayscaleImageClass(string sourceFile)
+        public GrayscaleClass(string sourceFile)
         {
             SelectedFile = sourceFile;
         }

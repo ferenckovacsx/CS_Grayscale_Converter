@@ -52,7 +52,7 @@
     <Compile Include="GrayscaleForm.Designer.cs">
       <DependentUpon>GrayscaleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrayscaleImageClass.cs" />
+    <Compile Include="GrayscaleClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GrayscaleForm.resx">

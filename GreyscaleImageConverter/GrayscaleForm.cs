@@ -39,48 +39,40 @@ namespace GreyscaleImageConverter
             //set some picturebox parameters
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox2.BorderStyle = BorderStyle.FixedSingle;
-            
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
 
             // set default picturebox values that will show on startup
             pictureBox1.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_color.png";
             pictureBox2.ImageLocation =
                 @"C:\Users\ferenckovacs\Documents\Visual Studio 2015\Projects\GreyscaleImageConverter\GreyscaleImageConverter\logo_grayscale.jpg";
-
-
         }
 
-        private void fillPictureBox(string sourceImage)
+        private void FillPictureBox(string sourceImage)
         {
             Image image = Image.FromFile(sourceImage);
-            Console.WriteLine(image.Height);
+            GrayscaleClass editorClass = new GrayscaleClass(SelectedFile);
 
             if (image.Height > 300 || image.Width > 300)
             {
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             }
             else
             {
                 pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+                pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             }
 
             pictureBox1.Image = image;
-
-
+            pictureBox2.Image = editorClass.ConvertToGrayscale(SelectedFile);
         }
+
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 SelectedFile = openFileDialog.FileName;      
-                fillPictureBox(SelectedFile);        
-                //pictureBox1.ImageLocation = SelectedFile;
-                GrayscaleImageClass editorClass = new GrayscaleImageClass(SelectedFile);
-
-                //invoke 'ConvertToGrayscale' method with 'SelectedFile' as 
-                //paramether add the result to 'picturebox2'
-                pictureBox2.Image = editorClass.ConvertToGrayscale(SelectedFile);
+                FillPictureBox(SelectedFile);        
             }            
         }
 
