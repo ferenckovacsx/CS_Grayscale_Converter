@@ -18,7 +18,6 @@ namespace GreyscaleImageConverter
 
         public Bitmap ConvertToGrayscale(string sourceFile)
         {
-            //sourceFile = SelectedFile;
             Bitmap image = new Bitmap(sourceFile);
             Color color;
             int y;
